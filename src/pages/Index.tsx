@@ -1,4 +1,4 @@
-const MESSENGER_URL = "#";
+const MESSENGER_URL = "https://s.salebot.pro/456e8e23907e5384b4659a1525b8985d_20";
 
 const checkItems = [
   "Что такое «посмертный учёт» — и почему именно он, а не налоговая инспекция, является главной угрозой для вашей стройки",
