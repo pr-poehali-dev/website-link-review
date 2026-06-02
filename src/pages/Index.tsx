@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-const METRIKA_ID = 101026698;
+const METRIKA_ID = 107193309;
 const SWIPE_THRESHOLD = 10;
 
 function useLinkTracker(goal: string) {
