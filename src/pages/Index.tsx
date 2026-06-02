@@ -14,7 +14,7 @@ const CtaButton = () => (
     href={MESSENGER_URL}
     className="block w-full py-4 px-6 bg-brand-red hover:bg-brand-red-hover active:scale-95 transition-all duration-150 rounded-xl text-white font-bold text-sm tracking-widest text-center uppercase"
   >
-    Получить кейс в МАКС ▶
+    Получить кейс в мессенджере ▶
   </a>
 );
 
@@ -45,7 +45,7 @@ const Index = () => {
 
           <div className="space-y-3">
             <p className="text-center text-[13px] text-gray-400">
-              Получите кейс в МАКС — бесплатно 👇
+              Получите кейс в мессенджере — бесплатно 👇
             </p>
             <CtaButton />
           </div>
@@ -85,7 +85,7 @@ const Index = () => {
 
           <div className="space-y-3 pt-2">
             <p className="text-center text-[13px] text-gray-400">
-              Подпишитесь в МАКС и получите кейс прямо сейчас 👇
+              Подпишитесь на мессенджер и получите кейс прямо сейчас 👇
             </p>
             <CtaButton />
           </div>
@@ -104,7 +104,7 @@ const Index = () => {
         {/* FINAL CTA */}
         <section className="space-y-3">
           <p className="text-center text-[13px] text-gray-400">
-            Подпишитесь в МАКС и получите кейс 👇
+            Подпишитесь на мессенджер и получите кейс 👇
           </p>
           <CtaButton />
           <p className="text-center text-[12px] text-gray-400 italic leading-relaxed pt-1">
