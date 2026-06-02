@@ -118,7 +118,7 @@ const Index = () => {
           <p className="text-center text-[13px] text-gray-400">
             Подпишитесь на мессенджер и получите кейс 👇
           </p>
-          <CtaButton />
+          <CtaButtons />
           <p className="text-center text-[12px] text-gray-400 italic leading-relaxed pt-1">
             P.S. Материал подготовлен специально для строительных компаний с оборотом от 100 млн.<br />
             Никаких продающих звонков и дожимов — только полезный разбор реальной ситуации.
