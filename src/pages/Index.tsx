@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 const MAKS_URL = "https://s.salebot.pro/456e8e23907e5384b4659a1525b8985d_20";
 const TELEGRAM_URL = "#";
@@ -77,6 +77,22 @@ const CtaButtons = () => {
 };
 
 const Index = () => {
+  const firedRef = useRef(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (firedRef.current) return;
+      const scrolled = window.scrollY + window.innerHeight;
+      const total = document.documentElement.scrollHeight;
+      if (scrolled >= total - 20) {
+        firedRef.current = true;
+        window.ym?.(METRIKA_ID, "reachGoal", "skrol-100");
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-white font-golos text-gray-900">
       <div className="max-w-[600px] mx-auto px-4 py-8 space-y-8">
