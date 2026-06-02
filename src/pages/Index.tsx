@@ -11,22 +11,22 @@ const checkItems = [
 ];
 
 const CtaButtons = () => (
-  <div className="space-y-2">
+  <div className="space-y-3">
     <a
       href={MAKS_URL}
-      className="block w-full py-4 px-6 bg-brand-red hover:bg-brand-red-hover active:scale-95 transition-all duration-150 rounded-xl text-white font-bold text-sm tracking-widest text-center uppercase"
+      className="block w-full py-3 px-6 bg-brand-red hover:bg-brand-red-hover active:scale-95 transition-all duration-150 rounded-xl text-white text-center"
     >
-      Получить кейс в МАКС ▶
+      <div className="font-bold text-sm tracking-widest uppercase">Получить кейс в МАКС ▶</div>
+      <div className="text-[11px] font-normal opacity-80 mt-0.5">Грузится стабильно</div>
     </a>
-    <p className="text-center text-[11px] text-gray-400">Грузится стабильно</p>
 
     <a
       href={TELEGRAM_URL}
-      className="block w-full py-4 px-6 bg-[#2AABEE] hover:bg-[#1d96d6] active:scale-95 transition-all duration-150 rounded-xl text-white font-bold text-sm tracking-widest text-center uppercase"
+      className="block w-full py-3 px-6 bg-[#2AABEE] hover:bg-[#1d96d6] active:scale-95 transition-all duration-150 rounded-xl text-white text-center"
     >
-      Получить кейс в Телеграм ▶
+      <div className="font-bold text-sm tracking-widest uppercase">Получить кейс в Телеграм ▶</div>
+      <div className="text-[11px] font-normal opacity-80 mt-0.5">Могут быть проблемы с загрузкой</div>
     </a>
-    <p className="text-center text-[11px] text-gray-400">Могут быть проблемы с загрузкой</p>
   </div>
 );
 
