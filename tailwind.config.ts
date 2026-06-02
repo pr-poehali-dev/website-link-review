@@ -7,6 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+			"./1780395924027001528.html"
 	],
 	prefix: "",
 	theme: {
@@ -18,7 +19,15 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				golos: ['Golos Text', 'sans-serif'],
+			},
 			colors: {
+				brand: {
+					red: '#C8102E',
+					'red-hover': '#a50e26',
+					'red-light': '#fdf0f2',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
