@@ -1,5 +1,38 @@
+import { useRef } from "react";
+
 const MAKS_URL = "https://s.salebot.pro/456e8e23907e5384b4659a1525b8985d_20";
 const TELEGRAM_URL = "#";
+
+declare global {
+  interface Window {
+    ym?: (id: number, action: string, goal: string) => void;
+  }
+}
+
+const METRIKA_ID = 101026698;
+const SWIPE_THRESHOLD = 10;
+
+function useLinkTracker(goal: string) {
+  const startPos = useRef<{ x: number; y: number } | null>(null);
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    startPos.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+
+  const onClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (startPos.current) {
+      const dx = Math.abs(e.clientX - startPos.current.x);
+      const dy = Math.abs(e.clientY - startPos.current.y);
+      if (dx > SWIPE_THRESHOLD || dy > SWIPE_THRESHOLD) {
+        e.preventDefault();
+        return;
+      }
+    }
+    window.ym?.(METRIKA_ID, "reachGoal", goal);
+  };
+
+  return { onTouchStart, onClick };
+}
 
 const checkItems = [
   "Что такое «посмертный учёт» — и почему именно он, а не налоговая инспекция, является главной угрозой для вашей стройки",
@@ -10,25 +43,38 @@ const checkItems = [
   "Три конкретных изменения в работе с учётом, которые сделали блокировку счёта практически невозможной",
 ];
 
-const CtaButtons = () => (
-  <div className="space-y-3">
-    <a
-      href={MAKS_URL}
-      className="block w-full py-3 px-6 bg-brand-red hover:bg-brand-red-hover active:scale-95 transition-all duration-150 rounded-xl text-white text-center"
-    >
-      <div className="font-bold text-sm tracking-widest uppercase">Получить кейс в МАКС ▶</div>
-      <div className="text-[11px] font-normal opacity-80 mt-0.5">Грузится стабильно</div>
-    </a>
+const CtaButtons = () => {
+  const maks = useLinkTracker("KLICK-MAKS");
+  const tg = useLinkTracker("KLICK-TG");
 
-    <a
-      href={TELEGRAM_URL}
-      className="block w-full py-3 px-6 bg-[#2AABEE] hover:bg-[#1d96d6] active:scale-95 transition-all duration-150 rounded-xl text-white text-center"
-    >
-      <div className="font-bold text-sm tracking-widest uppercase">Получить кейс в Телеграм ▶</div>
-      <div className="text-[11px] font-normal opacity-80 mt-0.5">Могут быть проблемы с загрузкой</div>
-    </a>
-  </div>
-);
+  return (
+    <div className="space-y-3">
+      <a
+        href={MAKS_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full py-3 px-6 bg-brand-red hover:bg-brand-red-hover active:scale-95 transition-all duration-150 rounded-xl text-white text-center"
+        onTouchStart={maks.onTouchStart}
+        onClick={maks.onClick}
+      >
+        <div className="font-bold text-sm tracking-widest uppercase">Получить кейс в МАКС ▶</div>
+        <div className="text-[11px] font-normal opacity-80 mt-0.5">Грузится стабильно</div>
+      </a>
+
+      <a
+        href={TELEGRAM_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block w-full py-3 px-6 bg-[#2AABEE] hover:bg-[#1d96d6] active:scale-95 transition-all duration-150 rounded-xl text-white text-center"
+        onTouchStart={tg.onTouchStart}
+        onClick={tg.onClick}
+      >
+        <div className="font-bold text-sm tracking-widest uppercase">Получить кейс в Телеграм ▶</div>
+        <div className="text-[11px] font-normal opacity-80 mt-0.5">Могут быть проблемы с загрузкой</div>
+      </a>
+    </div>
+  );
+};
 
 const Index = () => {
   return (
