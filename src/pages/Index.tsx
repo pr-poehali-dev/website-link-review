@@ -1,4 +1,5 @@
-const MESSENGER_URL = "https://s.salebot.pro/456e8e23907e5384b4659a1525b8985d_20";
+const MAKS_URL = "https://s.salebot.pro/456e8e23907e5384b4659a1525b8985d_20";
+const TELEGRAM_URL = "#";
 
 const checkItems = [
   "Что такое «посмертный учёт» — и почему именно он, а не налоговая инспекция, является главной угрозой для вашей стройки",
@@ -9,13 +10,24 @@ const checkItems = [
   "Три конкретных изменения в работе с учётом, которые сделали блокировку счёта практически невозможной",
 ];
 
-const CtaButton = () => (
-  <a
-    href={MESSENGER_URL}
-    className="block w-full py-4 px-6 bg-brand-red hover:bg-brand-red-hover active:scale-95 transition-all duration-150 rounded-xl text-white font-bold text-sm tracking-widest text-center uppercase"
-  >
-    Получить кейс в мессенджере ▶
-  </a>
+const CtaButtons = () => (
+  <div className="space-y-2">
+    <a
+      href={MAKS_URL}
+      className="block w-full py-4 px-6 bg-brand-red hover:bg-brand-red-hover active:scale-95 transition-all duration-150 rounded-xl text-white font-bold text-sm tracking-widest text-center uppercase"
+    >
+      Получить кейс в МАКС ▶
+    </a>
+    <p className="text-center text-[11px] text-gray-400">Грузится стабильно</p>
+
+    <a
+      href={TELEGRAM_URL}
+      className="block w-full py-4 px-6 bg-[#2AABEE] hover:bg-[#1d96d6] active:scale-95 transition-all duration-150 rounded-xl text-white font-bold text-sm tracking-widest text-center uppercase"
+    >
+      Получить кейс в Телеграм ▶
+    </a>
+    <p className="text-center text-[11px] text-gray-400">Могут быть проблемы с загрузкой</p>
+  </div>
 );
 
 const Index = () => {
@@ -47,7 +59,7 @@ const Index = () => {
             <p className="text-center text-[13px] text-gray-400">
               Получите кейс в мессенджере — бесплатно 👇
             </p>
-            <CtaButton />
+            <CtaButtons />
           </div>
         </section>
 
@@ -87,7 +99,7 @@ const Index = () => {
             <p className="text-center text-[13px] text-gray-400">
               Подпишитесь на мессенджер и получите кейс прямо сейчас 👇
             </p>
-            <CtaButton />
+            <CtaButtons />
           </div>
         </section>
 
