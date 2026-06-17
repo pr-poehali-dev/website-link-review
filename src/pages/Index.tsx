@@ -1,7 +1,7 @@
 import { useRef, useEffect } from "react";
 
-const MAKS_URL = "https://s.salebot.pro/456e8e23907e5384b4659a1525b8985d_20";
-const TELEGRAM_URL = "https://s.salebot.pro/456e8e23907e5384b4659a1525b8985d_1";
+const MAKS_URL = "https://s.salebot.pro/protokol-anti-block_20";
+const TELEGRAM_URL = "https://s.salebot.pro/protokol-anti-block_1";
 
 declare global {
   interface Window {
